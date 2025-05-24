@@ -1,5 +1,6 @@
 # Vault + Kubernetes Authentication & CSI Integration
 **Environment:** Ubuntu 24.04 + Docker Compose + Kubernetes Cluster (Secrets Store CSI Driver)
+![image](https://github.com/user-attachments/assets/5883517a-345f-45f9-b170-280c26e50fbe)
 
 ## 1. Prepare Vault Project Directory
 ```bash
@@ -120,6 +121,8 @@ Navigate to:
 http://192.168.55.40:8200
 ```
 Go to: Access > Authentication Methods > Kubernetes > Configuration Tab > Configure
+
+![image](https://github.com/user-attachments/assets/935a5b17-68fa-4933-9922-115db44e4933)
 
 - **Kubernetes Host:** `https://192.168.55.24:6443`
 - **Kubernetes CA Certificate:**
