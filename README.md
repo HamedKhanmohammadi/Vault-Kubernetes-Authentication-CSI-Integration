@@ -248,14 +248,14 @@ kubectl get pod
 
 ---
 
-## 🔍 Secret Usage Flow: From Vault to Pod
+##  Secret Usage Flow: From Vault to Pod
 
-### 1. 🔐 Store Secret in Vault
+### 1.  Store Secret in Vault
 ```bash
 vault kv put secret/db-pass pwd="admin@123"
 ```
 
-### 2. 🛡 Vault Policy and Role
+### 2.  Vault Policy and Role
 ```hcl
 path "secret/data/db-pass" {
   capabilities = ["read"]
@@ -266,7 +266,7 @@ path "secret/data/db-pass" {
 vault write auth/kubernetes/role/database     bound_service_account_names=vault-auth-sa     bound_service_account_namespaces=default     policies=internal-app     ttl=20m
 ```
 
-### 3. 🧩 Define SecretProviderClass
+### 3.  Define SecretProviderClass
 ```yaml
 parameters:
   vaultAddress: "http://192.168.55.40:8200"
@@ -277,7 +277,7 @@ parameters:
       secretKey: "pwd"
 ```
 
-### 4. 📦 Mount Secret in Pod
+### 4.  Mount Secret in Pod
 ```yaml
 volumeMounts:
   - name: secrets-store-inline
@@ -290,12 +290,12 @@ cat /mnt/secrets-store/db-pass
 # Output: admin@123
 ```
 
-### 🧠 Application Usage (Example in Python)
+###  Application Usage (Example in Python)
 ```python
 file = open("/mnt/secrets-store/db-pass").read().strip()
 ```
 
-## 🔐 Key Benefits
+##  Key Benefits
 - No secret stored in etcd.
 - Mounted as file, not environment variable.
 - Dynamic and ephemeral from Vault.
